@@ -7,6 +7,7 @@ const EventForm = () => {
   const initialValues = {
     eventName: '',
     date: '',
+    time: '',
     location: '',
     description: '',
     image: null,
@@ -15,6 +16,7 @@ const EventForm = () => {
   const validationSchema = Yup.object({
     eventName: Yup.string().required('Event name is required'),
     date: Yup.date().required('Date is required'),
+    time: Yup.string().required('Time is required'),
     location: Yup.string().required('Location is required'),
     description: Yup.string().required('Description is required'),
   });
@@ -42,16 +44,23 @@ const EventForm = () => {
   return (
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
       {({ setFieldValue }) => (
-        <Form className="space-y-4 p-6 bg-gradient-to-r from-green-400 to-green-600 rounded-lg shadow-lg mx-11 my-8 lg:mx-[14rem]">
+        <Form className="space-y-4 p-6 bg-gradient-to-r from-green-400 to-green-600 rounded-lg shadow-lg mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-64 mt-3 mb-10 max-h-screen">
           <div>
             <label htmlFor="eventName" className="block text-white">Event Name</label>
             <Field type="text" id="eventName" name="eventName" className="w-full p-2 rounded" />
             <ErrorMessage name="eventName" component="div" className="text-red-500" />
           </div>
-          <div>
-            <label htmlFor="date" className="block text-white">Date</label>
-            <Field type="date" id="date" name="date" className="w-full p-2 rounded" />
-            <ErrorMessage name="date" component="div" className="text-red-500" />
+          <div className="flex flex-col md:flex-row md:space-x-4">
+            <div className="flex-1">
+              <label htmlFor="date" className="block text-white">Date</label>
+              <Field type="date" id="date" name="date" className="w-full p-2 rounded" />
+              <ErrorMessage name="date" component="div" className="text-red-500" />
+            </div>
+            <div className="flex-1 mt-4 md:mt-0">
+              <label htmlFor="time" className="block text-white">Time</label>
+              <Field type="time" id="time" name="time" className="w-full p-2 rounded" />
+              <ErrorMessage name="time" component="div" className="text-red-500" />
+            </div>
           </div>
           <div>
             <label htmlFor="location" className="block text-white">Location</label>

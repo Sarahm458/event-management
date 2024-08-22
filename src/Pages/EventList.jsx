@@ -10,7 +10,7 @@ const EventList = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-gradient-to-r from-green-400 to-green-600 rounded-lg shadow-lg mx-4 my-4 md:mx-[6rem] md:mt-8 lg:mx-[14rem]">
+    <div className="p-6 bg-gradient-to-r from-green-400 to-green-600 rounded-lg shadow-lg mx-4 my-4 md:mx-[6rem] md:mt-8 lg:mx-[20rem]">
       <h1 className="text-white text-2xl mb-4">Event List</h1>
       <ul className="space-y-2">
         {events.map((event, index) => (
